@@ -320,7 +320,7 @@ public abstract class AbstractScript<C extends ClientContext> implements Script 
 	public void openURL(final String url) {
 		final String host;
 		try {
-			host = "." + new URL(url).getHost();
+			host = "" + new URL(url).getHost();
 		} catch (final MalformedURLException ignored) {
 			return;
 		}
@@ -330,7 +330,7 @@ public abstract class AbstractScript<C extends ClientContext> implements Script 
 		whitelist.add(Configuration.URLs.GAME);
 
 		for (final String w : whitelist) {
-			if (host.endsWith("." + w)) {
+			if (host.endsWith("" + w)) {
 				BotChrome.openURL(url);
 				return;
 			}
